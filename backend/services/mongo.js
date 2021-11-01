@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const main = async () => {
-    await mongoose.connect('mongodb://localhost:27017/restaurant');
+    await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 }
 
 main().catch(err => console.log(err));
