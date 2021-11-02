@@ -65,6 +65,12 @@ const Restaurant = require('./models/restaurant');
         imageUrl: '/images/mousaka.jpg',
         price: 1150
       },
+      {
+        name: 'Calamari',
+        description: 'Buttered squid rings served with tzatziki',
+        imageUrl: '/images/calamari.jpg',
+        price: 620
+      }
     ]);
 
     await Restaurant.create([
@@ -95,6 +101,12 @@ const Restaurant = require('./models/restaurant');
         imageUrl: '/images/malai-kofta.jpg',
         price: 1490
       },
+      {
+        name: 'Tandoori chicken',
+        description: 'Chicken prepared in yoghurt, mild spices, and herbs',
+        imageUrl: '/images/tandoori-chicken.jpg',
+        price: 730
+      },
     ]);
 
     await Restaurant.create([
@@ -117,14 +129,20 @@ const Restaurant = require('./models/restaurant');
         name: 'Lomo Saltado',
         description: 'Slices of seared beef, onions, tomatoes, and fries',
         imageUrl: '/images/lomo-saltado.jpg',
-        price: 450
+        price: 1250
       },
       {
         name: 'Chaufa de Mariscos',
         description: 'Rice with a bounty of seafood',
         imageUrl: '/images/chaufa-de-mariscos.jpg',
-        price: 450
-      }
+        price: 1000
+      },
+      {
+        name: 'Yuca a la Huancaina',
+        description: 'Yuca with Peruvian creamy pepper sauce',
+        imageUrl: '/images/yuca.jpg',
+        price: 399
+      },
     ]);
 
     await Restaurant.create([
@@ -154,7 +172,13 @@ const Restaurant = require('./models/restaurant');
         description: 'Tuna rice roll spiced with wasabi',
         imageUrl: '/images/spicy-tuna-roll.jpg',
         price: 1150
-      }
+      },
+      {
+        name: 'California Roll',
+        description: 'Inside-out maki sushi made with crab',
+        imageUrl: '/images/california.jpg',
+        price: 950
+      },
     ]);
 
     await Restaurant.create([
@@ -178,7 +202,19 @@ const Restaurant = require('./models/restaurant');
         description: 'Wood oven baked to perfection',
         imageUrl: '/images/peperoni-pizza.jpg',
         price: 1799
-      }
+      },
+      {
+        name: 'Calzone',
+        description: 'Homemade dough and a savory filling of ricotta and mozzarella',
+        imageUrl: '/images/calzone.jpg',
+        price: 1099
+      },
+      {
+        name: 'Spaghetti Bolognese',
+        description: 'Al dente pasta with savory beef tomato sauce',
+        imageUrl: '/images/bolognese.jpg',
+        price: 850
+      },
     ]);
 
     await Restaurant.create([
