@@ -9,6 +9,12 @@ const home = function Home(data) {
         <meta name="description" content="Order online with this app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="title">
+        <h2>Welcome to Cyril&apos;s Restaurants</h2>
+      </div>
+      <div className="description">
+        Curated dishes from selected restaurants to order online
+      </div>
       <main className="main">
         <CardsArray data={data} />
       </main>
@@ -17,7 +23,7 @@ const home = function Home(data) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:8080/restaurants`)
+  const res = await fetch(`http://backend:8080/restaurants`)
   const data = await res.json()
   return { props: { restaurants: data } }
 }
