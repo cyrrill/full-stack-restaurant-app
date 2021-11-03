@@ -1,6 +1,5 @@
-// import { configureStore } from '@reduxjs/toolkit'
 import { createStore } from 'redux'
-import { persistStore, persistReducer, persistCombineReducers } from 'redux-persist'
+import { persistStore, persistReducer } from 'redux-persist'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import storage from './storage'
 

@@ -14,9 +14,9 @@ export const cartSlice = createSlice({
         if (!!state.dishes[action.payload._id]) {
             state.dishes[action.payload._id].quantity++
         } else {
-            const { name, price } = action.payload
+            const { name, price, imageUrl } = action.payload
             state.dishes[action.payload._id] = {
-                name, price, quantity: 1
+                name, price, imageUrl, quantity: 1
             }
         }
         state.total += action.payload.price
@@ -53,6 +53,6 @@ export const cartSlice = createSlice({
 export const { addDish, removeDish, deleteDish, emptyCart } = cartSlice.actions
 export const selectDishes = state => state.cart.dishes
 export const selectTotal = state => state.cart.total
-export const selectQuantity = state => state.quantity
+export const selectQuantity = state => state.cart.quantity
 
 export default cartSlice.reducer
