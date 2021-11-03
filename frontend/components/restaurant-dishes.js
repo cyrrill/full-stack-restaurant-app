@@ -56,7 +56,7 @@ export default function RestaurantDishes(data) {
           <Toast.Header className="text-success">
             <strong className="me-auto">Added to Cart!</strong>
           </Toast.Header>
-          <Toast.Body>Your dish was added to the cart</Toast.Body>
+          <Toast.Body>Your dish was added to the cart, check out the toolbar up top</Toast.Body>
         </Toast>
       </div>
 
