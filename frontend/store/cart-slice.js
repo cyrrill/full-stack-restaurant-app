@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import nookies from 'nookies'
 
 export const cartSlice = createSlice({
   name: 'cart',
