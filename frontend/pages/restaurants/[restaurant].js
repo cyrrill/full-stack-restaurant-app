@@ -8,12 +8,12 @@ function Restaurant(data) {
     <>
       <br/>
       <div style={{backgroundColor: "rgb(247, 247, 247)"}}>
-        <h1 className="title">{data.restaurant.name}</h1>
+        <h2 className="title">{data.restaurant.name}</h2>
         <br/>
         <div style={{textAlign: "center"}}>
           <Image src={data.restaurant.imageUrl} alt={data.restaurant.name} fluid roundedCircle style={{
-            maxWidth:"400px",
-            maxHeight:"400px",
+            maxWidth:"300px",
+            maxHeight:"300px",
             filter: "drop-shadow(0 0 0.75rem #111)"
           }}/>
           <br/><br/>
