@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { selectToken } from '../auth-slice'
+import { selectToken } from '../store/auth-slice'
+import CartButton from './cart-button'
 
 export default function Navigation() {
 
   const token = useSelector(selectToken)
-  console.log(token)
 
   return (
       <Navbar variant="dark" bg="dark" expand="lg" style={{overflowY: "visbile", height: "75px"}}>
@@ -21,6 +21,9 @@ export default function Navigation() {
           : <Navbar.Collapse className="justify-content-end">
             {!!token
               ? <>
+                <Navbar.Text>
+                  <CartButton />
+                </Navbar.Text>
                 <Navbar.Text>
                   <Nav.Link className="nav-link">{token.displayName || token.email}</Nav.Link>
                 </Navbar.Text>
