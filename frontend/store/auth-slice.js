@@ -1,4 +1,3 @@
-import { getIdToken } from '@firebase/auth'
 import { createSlice } from '@reduxjs/toolkit'
 
 export const authSlice = createSlice({
@@ -16,10 +15,8 @@ export const authSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
+
 export const { setToken, logout } = authSlice.actions
-
 export const selectToken = state => state.auth.token;
-
 
 export default authSlice.reducer
