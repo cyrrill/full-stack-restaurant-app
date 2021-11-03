@@ -17,6 +17,7 @@
     "mongoose": "^6.0.12",
     "mongoose-autopopulate": "^0.16.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "stripe": "^8.186.0"
   }
 }
