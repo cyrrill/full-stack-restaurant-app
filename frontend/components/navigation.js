@@ -22,7 +22,7 @@ export default function Navigation() {
             {!!token
               ? <>
                 <Navbar.Text>
-                  <CartButton />
+                  {(window.location.href.includes('/checkout')) ? '' : <CartButton />}
                 </Navbar.Text>
                 <Navbar.Text>
                   <Nav.Link className="nav-link">{token.displayName || token.email}</Nav.Link>
