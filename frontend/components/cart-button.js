@@ -12,20 +12,23 @@ export default function CartButton() {
   return (
     <>
       <OverlayTrigger
+        rootClose
         trigger="click"
         placement="bottom"
         overlay={
+          quantity ?
           <Popover id="popover-positioned-bottom" style={{maxWidth: "600px"}}>
             <Popover.Header>Shopping Cart</Popover.Header>
             <Popover.Body>
-              <Cart />
+              <Cart checkout={true} />
             </Popover.Body>
           </Popover>
+          : <></>
         }
       >
-        <Button variant="dark" >
+        <Button id="cart-button" variant="dark" disabled={quantity === 0} alt="hello">
           <Image src="/images/cart.png" width="50px" height="50px" />
-          <Badge pill bg="danger">{ quantity }</Badge>
+          { quantity ? <Badge pill bg="danger">{ quantity }</Badge> : <></> }
         </Button>
       </OverlayTrigger>
     </>
