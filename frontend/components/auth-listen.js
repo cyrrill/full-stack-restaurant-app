@@ -2,11 +2,9 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getAuth } from 'firebase/auth'
 import nookies from 'nookies'
-import { setToken } from '../auth-slice'
-
+import { setToken } from '../store/auth-slice'
 
 export default function AuthListen() {
-
 
   const dispatch = useDispatch()
 
