@@ -1,10 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './auth-slice'
-import cartReducer from './cart-slice'
+// import { configureStore } from '@reduxjs/toolkit'
+import { createStore } from 'redux'
+import { persistStore, persistReducer, persistCombineReducers } from 'redux-persist'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import storage from './storage'
 
-export default configureStore({
-  reducer: {
-      auth: authReducer,
-      cart: cartReducer,
-  },
-})
+import rootReducer from './root-reducer'
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = createStore(persistedReducer, composeWithDevTools())
+export const persistor = persistStore(store)
