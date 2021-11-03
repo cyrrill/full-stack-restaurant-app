@@ -1,10 +1,21 @@
 import { Card, Button, Row, Col, Image } from 'react-bootstrap';
 import nookies from 'nookies'
+import router from 'next/router'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectToken } from '../../store/auth-slice'
+import { addDish, removeDish } from '../../store/cart-slice'
 
 function Restaurant(data) {
 
-  function addToCart(id) {
-    // alert(id);
+  const token = useSelector(selectToken)
+  const dispatch = useDispatch()
+
+  const addToCart = (dish) => {
+    if (!!token) {
+      dispatch(addDish(dish))
+    } else {
+      router.push('/auth/login')
+    }
   }
 
   const cardsArray = data.restaurant.dishes.map(dish => (
@@ -17,7 +28,7 @@ function Restaurant(data) {
             <Card.Text>{dish.description}</Card.Text>
           </div>
           <div className="d-grid gap-2 b-0">
-            <Button size="lg" variant="dark" onClick={addToCart(dish._id)}>Add to Cart</Button>
+            <Button size="lg" variant="dark" onClick={() => addToCart(dish)}>Add to Cart</Button>
           </div>
         </Card.Body>
       </Card>
