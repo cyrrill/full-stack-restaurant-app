@@ -5,7 +5,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login() {
 
-  const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(false)
 
   function firebaseLogin(email, password) {
     return new Promise((resolve, reject) => {
