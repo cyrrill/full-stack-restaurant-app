@@ -1,39 +1,8 @@
-import { Card, Button, Row, Col, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import nookies from 'nookies'
-import router from 'next/router'
-import { useSelector, useDispatch } from 'react-redux'
-import { selectToken } from '../../store/auth-slice'
-import { addDish, removeDish } from '../../store/cart-slice'
+import RestaurantDishes from '../../components/restaurant-dishes';
 
 function Restaurant(data) {
-
-  const token = useSelector(selectToken)
-  const dispatch = useDispatch()
-
-  const addToCart = (dish) => {
-    if (!!token) {
-      dispatch(addDish(dish))
-    } else {
-      router.push('/auth/login')
-    }
-  }
-
-  const cardsArray = data.restaurant.dishes.map(dish => (
-    <Col key={dish._id}>
-      <Card style={{height: "450px"}}>
-        <Card.Img variant="top" src={dish.imageUrl} style={{height: "170px"}} />
-        <Card.Body style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-          <div>
-            <Card.Title>{dish.name}</Card.Title>
-            <Card.Text>{dish.description}</Card.Text>
-          </div>
-          <div className="d-grid gap-2 b-0">
-            <Button size="lg" variant="dark" onClick={() => addToCart(dish)}>Add to Cart</Button>
-          </div>
-        </Card.Body>
-      </Card>
-    </Col>
-  ))
 
   return (
     <>
@@ -54,10 +23,9 @@ function Restaurant(data) {
       </div>
 
       <main className="main">
-        <Row xs={1} md={4}>
-          {cardsArray}
-        </Row>
+        <RestaurantDishes dishes={data.restaurant.dishes} />
       </main>
+
     </>
   )
 }
