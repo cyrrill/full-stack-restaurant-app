@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
+import 'animate.css'
 import { initializeApp } from 'firebase/app'
 import { Provider } from 'react-redux'
 import store from '../store/store'
