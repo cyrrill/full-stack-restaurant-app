@@ -6,10 +6,11 @@ const OrderSchema = new Schema({
     address: String,
     city: String,
     state: String,
-    lines: [{ dish: {type: Schema.Types.ObjectId, ref:'Dish'}, quantity: Number, cost: Number }],
+    zip: String,
+    items: [{ dish: {type: Schema.Types.ObjectId, ref:'Dish'}, quantity: Number, cost: Number }],
     total: Number,
+    payment: String,
     createdAt: Date,
-
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
