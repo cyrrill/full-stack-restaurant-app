@@ -1,8 +1,8 @@
 import { Card, Button, Row, Col } from 'react-bootstrap';
 
-export default function CardsArray(props) {
+export default function RestaurantsArray(props) {
 
-  const cardsArray = props.data.restaurants.map(restaurant => (
+  const restaurantsArray = props.data.restaurants.map(restaurant => (
     <Col key={restaurant._id}>
       <Card style={{height: "450px"}}>
         <Card.Img variant="top" src={restaurant.imageUrl} style={{height: "170px"}} />
@@ -21,7 +21,7 @@ export default function CardsArray(props) {
 
   return (
     <Row xs={1} md={3}>
-     {cardsArray}
+     {restaurantsArray}
     </Row>
   )
 }
