@@ -11,7 +11,7 @@ function Restaurant(data) {
         <h2 className="title">{data.restaurant.name}</h2>
         <br/>
         <div style={{textAlign: "center"}}>
-          <Image src={data.restaurant.imageUrl} alt={data.restaurant.name} fluid roundedCircle style={{
+          <Image src={data.restaurant.imageUrl} alt={data.restaurant.name} fluid  style={{
             maxWidth:"300px",
             maxHeight:"300px",
             filter: "drop-shadow(0 0 0.75rem #111)"

@@ -52,7 +52,7 @@ export default function RestaurantDishes(data) {
       </Row>
 
       <div className="toast-container position-fixed bottom-0 start-0 p-3" style={{zIndex: 11}}>
-        <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
+        <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide animation={false}>
           <Toast.Header className="text-success">
             <strong className="me-auto">Added to Cart!</strong>
           </Toast.Header>
