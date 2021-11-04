@@ -1,32 +1,50 @@
-import { Image } from 'react-bootstrap';
+import { useState } from 'react'
+import { Form, InputGroup, Image } from 'react-bootstrap'
 import nookies from 'nookies'
 import RestaurantDishes from '../../components/restaurant-dishes';
 
 function Restaurant(data) {
 
+  const [dishes, setDishes] = useState(data.restaurant.dishes)
+
+  function doSearch() {
+    const val = document.getElementById('search').value
+    if (val) {
+      const filtered = dishes.filter(r => r.name.toLowerCase().includes(val.toLowerCase()))
+      setDishes(filtered)
+    } else {
+      setDishes(data.restaurant.dishes)
+    }
+  }
+
   return (
-    <>
+    <div className="container">
       <br/>
-      <div style={{backgroundColor: "rgb(247, 247, 247)"}}>
+      <div>
         <h2 className="title">{data.restaurant.name}</h2>
         <br/>
         <div style={{textAlign: "center"}}>
           <Image src={data.restaurant.imageUrl} alt={data.restaurant.name} fluid  style={{
-            maxWidth:"300px",
-            maxHeight:"300px",
+            maxWidth:"400px",
+            maxHeight:"400px",
             filter: "drop-shadow(0 0 0.75rem #111)"
           }}/>
           <br/><br/>
           <div>{data.restaurant.description}</div>
-          <br/>
         </div>
       </div>
 
       <main className="main">
-        <RestaurantDishes dishes={data.restaurant.dishes} />
+        <div>
+          <InputGroup className="px-5">
+            <InputGroup.Text id="basic-addon1"><Image src="/images/search-icon.png" /></InputGroup.Text>
+            <Form.Control id="search" type="text" onChange={() => doSearch()} autoComplete="off" style={{fontSize:"24px"}}/>
+          </InputGroup>
+        </div>
+        <RestaurantDishes dishes={dishes} />
       </main>
 
-    </>
+    </div>
   )
 }
 

@@ -1,7 +1,22 @@
+import { useState } from 'react'
 import Head from 'next/head'
+import { Form, InputGroup, Image } from 'react-bootstrap'
 import RestaurantsArray from '../components/restaurants-array'
 
-const home = function Home(data) {
+function Home(data) {
+
+  const [restaurants, setRestaurants] = useState(data.restaurants)
+
+  function doSearch() {
+    const val = document.getElementById('search').value
+    if (val) {
+      const filtered = restaurants.filter(r => r.name.toLowerCase().includes(val.toLowerCase()))
+      setRestaurants(filtered)
+    } else {
+      setRestaurants(data.restaurants)
+    }
+  }
+
   return (
     <div className="container">
       <Head>
@@ -16,7 +31,13 @@ const home = function Home(data) {
         Curated dishes from selected restaurants to order online
       </div>
       <main className="main">
-        <RestaurantsArray data={data} />
+        <div>
+        <InputGroup className="pe-5">
+          <InputGroup.Text id="basic-addon1"><Image src="/images/search-icon.png" /></InputGroup.Text>
+          <Form.Control id="search" type="text" onChange={() => doSearch()} autoComplete="off" style={{fontSize:"24px"}}/>
+        </InputGroup>
+        </div>
+        <RestaurantsArray data={{restaurants}} />
       </main>
     </div>
   )
@@ -28,4 +49,4 @@ export async function getServerSideProps() {
   return { props: { restaurants: data } }
 }
 
-export default home
+export default Home
