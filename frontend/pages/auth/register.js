@@ -34,7 +34,7 @@ export default function Register() {
             <Form.Control type="password" id="password" placeholder="Password" required />
           </div>
           <div className="d-grid gap-2">
-            <Button variant="dark" onClick={doRegister} size="lg">Login</Button>
+            <Button variant="dark" onClick={doRegister} size="lg">Register</Button>
           </div>
         </Form>
       </div>
@@ -42,7 +42,7 @@ export default function Register() {
       <div className="toast-container position-absolute bottom-0 start-0 p-3" style={{zIndex: 11}}>
         <Toast onClose={() => setShowToast(false)} show={showToast} delay={5000} autohide>
           <Toast.Header className="text-danger">
-            <strong className="me-auto">Login Failed</strong>
+            <strong className="me-auto">Registration Failed</strong>
           </Toast.Header>
           <Toast.Body>There was an error registering, please try again.</Toast.Body>
         </Toast>
