@@ -1,0 +1,148 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Full Stack Restaurants App",
+    "description": "Order food online",
+    "version": "1.0.0"
+  },
+  "host": "api.cyril-grazefullstackrestaurantapplication.com",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "jwt": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "authorization",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    }
+  },
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/secret": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/dish": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/restaurants/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/restaurants/{restaurantId}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/checkout/create-payment-intent": {
+      "post": {
+        "tags": [
+          "Checkout"
+        ],
+        "description": "Creates a Stripe payment intent which will be used for payment processing",
+        "parameters": [
+          {
+            "name": "items",
+            "description": "Array of Dish items",
+            "type": "array",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/checkout/order": {
+      "post": {
+        "tags": [
+          "Checkout"
+        ],
+        "description": "Create an order based on a list of items and a payment intent",
+        "parameters": [
+          {
+            "name": "paymentIntent",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "paymentIntent": {
+                  "example": "any"
+                },
+                "items": {
+                  "example": "any"
+                }
+              }
+            },
+            "description": "Stripe API response object",
+            "type": "object"
+          },
+          {
+            "name": "items",
+            "description": "Array of Dish items",
+            "type": "array",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {}
+}

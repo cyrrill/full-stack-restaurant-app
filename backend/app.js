@@ -7,11 +7,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger-output.json')
 const mongo = require('./services/mongo');
 
 const app = express();
-
-// app.locals.models = require('./models');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -27,6 +27,8 @@ const checkoutRouter = require('./routes/checkout');
 app.use('/', indexRouter);
 app.use('/restaurants', restaurantsRouter);
 app.use('/checkout', checkoutRouter);
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
