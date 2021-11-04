@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import router from 'next/router'
-import { Form, Button, Toast } from 'react-bootstrap';
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { Form, Button, Toast } from 'react-bootstrap'
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 
 export default function Login() {
 
@@ -63,7 +63,6 @@ export default function Login() {
   const spanButtonText = {
     display: "inline-block",
     verticalAlign: "middle",
-    // paddingLeft: "42px",
     paddingRight: "42px",
     fontSize: "14px",
     fontWeight: "bold",
@@ -71,6 +70,10 @@ export default function Login() {
   }
 
   return (
+    <>
+    <div className="title">
+      <h1>Login</h1>
+    </div>
     <main className="main">
       <div className="col-md-7 col-lg-4 col-xl-4 mx-auto" style={boxStyle}>
         <Form className="pt-5 px-5">
@@ -107,5 +110,6 @@ export default function Login() {
         </Toast>
       </div>
     </main>
+    </>
   )
 }
