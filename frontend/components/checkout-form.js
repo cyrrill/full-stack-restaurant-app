@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from 'react-redux'
 import { selectToken } from '../store/auth-slice'
+import { Spinner  } from "react-bootstrap";
 import {
   PaymentElement,
   useStripe,
@@ -111,11 +112,14 @@ export default function CheckoutForm() {
       </div>
       <PaymentElement id="payment-element" />
       <br/>
-      <button disabled={isLoading || !stripe || !elements} id="submit" style={styles}>
-        <span id="button-text">
-          {isLoading ? <div className={styles.spinner} id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
+      { isLoading
+        ? <Spinner animation="border" variant="primary" />
+        : <button disabled={isLoading || !stripe || !elements} id="submit" style={styles}>
+            <span id="button-text">
+              Pay now"
+            </span>
+          </button>
+      }
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
@@ -144,58 +148,6 @@ export default function CheckoutForm() {
       box-sizing: border-box;
       display: block;
       margin-bottom: 4px;
-    }
-    /* spinner/processing state, errors */
-    .spinner,
-    .spinner:before,
-    .spinner:after {
-      border-radius: 50%;
-    }
-
-    .spinner {
-      color: #ffffff;
-      font-size: 22px;
-      text-indent: -99999px;
-      margin: 0px auto;
-      position: relative;
-      width: 20px;
-      height: 20px;
-      box-shadow: inset 0 0 0 2px;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-    }
-
-    .spinner:before,
-    .spinner:after {
-      position: absolute;
-      content: '';
-    }
-
-    .spinner:before {
-      width: 10.4px;
-      height: 20.4px;
-      background: #5469d4;
-      border-radius: 20.4px 0 0 20.4px;
-      top: -0.2px;
-      left: -0.2px;
-      -webkit-transform-origin: 10.4px 10.2px;
-      transform-origin: 10.4px 10.2px;
-      -webkit-animation: loading 2s infinite ease 1.5s;
-      animation: loading 2s infinite ease 1.5s;
-    }
-
-    .spinner:after {
-      width: 10.4px;
-      height: 10.2px;
-      background: #5469d4;
-      border-radius: 0 10.2px 10.2px 0;
-      top: -0.1px;
-      left: 10.2px;
-      -webkit-transform-origin: 0px 10.2px;
-      transform-origin: 0px 10.2px;
-      -webkit-animation: loading 2s infinite ease;
-      animation: loading 2s infinite ease;
     }
     `}</style>
   </>
