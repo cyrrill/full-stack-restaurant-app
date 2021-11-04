@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Button } from 'react-bootstrap'
+import { Button, Image } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import nookies from 'nookies'
 import { emptyCart } from '../store/cart-slice'
@@ -26,7 +26,7 @@ function Complete(props) {
         </div> : ''}
         <div>
           {/* Copyright pngtree.com */}
-          <img src="/images/delivery.png" />
+          <Image alt="delivery" src="/images/delivery.png" />
         </div>
         <div>
           <Button variant="success" href="/">Order something new :)</Button>

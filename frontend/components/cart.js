@@ -32,7 +32,7 @@ export default function Cart(props) {
 
     const dishesArray = dishes.map(dish => (
       <tr key={dish._id}>
-        <td><Image src={ dish.imageUrl } height="50px" width="50px" /></td>
+        <td><Image src={ dish.imageUrl } height="50px" width="50px" alt={dish.name} /></td>
         <td>{ dish.name }</td>
         <td>{ curr.format(dish.price / 100) }</td>
         <td>

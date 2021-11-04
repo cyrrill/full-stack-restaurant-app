@@ -116,7 +116,7 @@ export default function CheckoutForm() {
         ? <Spinner animation="border" variant="primary" />
         : <button disabled={isLoading || !stripe || !elements} id="submit" style={styles}>
             <span id="button-text">
-              Pay now"
+              Pay now
             </span>
           </button>
       }

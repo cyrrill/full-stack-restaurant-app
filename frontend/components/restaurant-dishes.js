@@ -11,15 +11,10 @@ export default function RestaurantDishes(data) {
   const dispatch = useDispatch()
   const [showToast, setShowToast] = useState(false)
 
-  const addToCart = (dish, e) => {
+  const addToCart = (dish) => {
     if (!!token) {
 
       setShowToast(true)
-      e.target.classList.add('animate__animated', 'animate__headShake')
-      e.target.addEventListener('animationend', () => {
-        e.target.classList.remove('animate__animated', 'animate__headShake')
-      })
-
       dispatch(addDish(dish))
 
     } else {
@@ -37,7 +32,7 @@ export default function RestaurantDishes(data) {
             <Card.Text>{dish.description}</Card.Text>
           </div>
           <div className="d-grid gap-2 b-0">
-            <Button size="lg" variant="dark" onClick={(e) => addToCart(dish, e)}>Add to Cart</Button>
+            <Button size="lg" variant="dark" onClick={() => addToCart(dish)}>Add to Cart</Button>
           </div>
         </Card.Body>
       </Card>

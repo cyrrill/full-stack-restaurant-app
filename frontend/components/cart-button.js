@@ -27,7 +27,7 @@ export default function CartButton() {
         }
       >
         <Button id="cart-button" variant="dark" disabled={quantity === 0} alt="hello">
-          <Image src="/images/cart.png" width="50px" height="50px" />
+          <Image src="/images/cart.png" width="50px" height="50px" alt="See cart" />
           { quantity ? <Badge pill bg="danger">{ quantity }</Badge> : <></> }
         </Button>
       </OverlayTrigger>
