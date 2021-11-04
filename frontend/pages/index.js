@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import CardsArray from '../components/cards-array'
+import RestaurantsArray from '../components/restaurants-array'
 
 const home = function Home(data) {
   return (
@@ -16,7 +16,7 @@ const home = function Home(data) {
         Curated dishes from selected restaurants to order online
       </div>
       <main className="main">
-        <CardsArray data={data} />
+        <RestaurantsArray data={data} />
       </main>
     </div>
   )
