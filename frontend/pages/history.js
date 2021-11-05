@@ -9,11 +9,11 @@ function History(props) {
 
   const dishes = props.dishes
   const orders = props.orders.map(o => (
-    <tr>
+    <tr key={o._id}>
       <td>{(new Date(o.createdAt)).toLocaleDateString('en-US')}</td>
       <td>
         {o.items.map(d => (
-          <div>
+          <div key={d._id}>
             {d.quantity} x {dishes[d._id].name} = {curr.format(d.quantity * dishes[d._id].price / 100)}<br/>
           </div>
         ))}
