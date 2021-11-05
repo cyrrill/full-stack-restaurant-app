@@ -55,6 +55,8 @@ function Dishes(data) {
         Select any dishes from all our restaurants<br/>
         <Button onClick={() => doShuffle()}>Shuffle Dishes</Button>
         &nbsp;
+        <Button variant="secondary" onClick={() => setDishes(useDishes)}>By Restaurant</Button>
+        &nbsp;
         <Button onClick={() => lucky()} variant="success">I&lsquo;m Feeling Luck &#8482;</Button>
       </div>
       <main className="main">
