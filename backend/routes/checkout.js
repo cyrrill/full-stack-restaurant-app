@@ -21,7 +21,7 @@ router.post('/create-payment-intent', firebaseAuth, async function(req, res, nex
     ],
   });
 
-  res.send({
+  res.json({
     clientSecret: paymentIntent.client_secret,
   });
 });
