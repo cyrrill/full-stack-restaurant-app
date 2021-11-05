@@ -15,22 +15,28 @@ function Checkout(data) {
   }
 
   return (
-    <main className="main">
     <Container>
-      <Row></Row>
-      <br/><br/><br/>
-      <Row>
-        <Col>
-          <Cart checkout={false} readonly={true} />
-        </Col>
-        <Col>
-          <Elements options={options} stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
-        </Col>
-      </Row>
+      <div className="title">
+        <h2>Checkout</h2>
+      </div>
+      <div className="description">
+        Enter your details and we will confirm and send your order asap!
+      </div>
+      <main className="main">
+        <Row></Row>
+        <br/><br/><br/>
+        <Row>
+          <Col>
+            <Cart checkout={false} readonly={true} />
+          </Col>
+          <Col>
+            <Elements options={options} stripe={stripePromise}>
+              <CheckoutForm />
+            </Elements>
+          </Col>
+        </Row>
+      </main>
     </Container>
-    </main>
   )
 }
 
