@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Dish  = require('../models/dish');
-const Restaurant = require('../models/restaurant')
+const Restaurant = require('../models/restaurant');
 
 router.get('/', async function(req, res, next) {
 
@@ -11,6 +11,14 @@ router.get('/', async function(req, res, next) {
   res.json(await Restaurant.find());
 });
 
+router.get('/dishes', async function(req, res, next) {
+
+  // #swagger.tags = ['Restaurants']
+  // #swagger.description = 'Listing of all dishes'
+
+  res.json(await Dish.find());
+});
+
 router.get('/:restaurantId', async function(req, res, next) {
 
   // #swagger.tags = ['Restaurants']
@@ -18,14 +26,6 @@ router.get('/:restaurantId', async function(req, res, next) {
   // #swagger.parameters['restaurantId'] = { description: 'Restaurant ID to lookup', type: 'string' }
 
   res.json(await Restaurant.findById(req.params.restaurantId));
-});
-
-router.get('/dish', async function(req, res, next) {
-
-  // #swagger.tags = ['Restaurants']
-  // #swagger.description = 'Listing of all dishes'
-
-  res.json(await Dish.find({}));
 });
 
 module.exports = router;
