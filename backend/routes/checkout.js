@@ -50,6 +50,15 @@ router.post('/order', firebaseAuth, async function(req, res, next) {
   res.json(order)
 });
 
+router.get('/history', firebaseAuth, async function(req, res, next) {
+
+  // #swagger.tags = ['Checkout']
+  // #swagger.description = 'Get user order history'
+  // #swagger.security = [{ "jwt": [] }]
+
+  res.json(await Order.find({user: req.user.email}))
+});
+
 // Calculate order total server-side to avoid manual alter client-side
 function calculateOrderAmount(items) {
   let total = 0
