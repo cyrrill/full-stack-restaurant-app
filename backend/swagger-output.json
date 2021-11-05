@@ -41,6 +41,16 @@
         "responses": {}
       }
     },
+    "/restaurants/dishes": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Listing of all dishes",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/restaurants/{restaurantId}": {
       "get": {
         "tags": [
@@ -56,16 +66,6 @@
             "description": "Restaurant ID to lookup"
           }
         ],
-        "responses": {}
-      }
-    },
-    "/restaurants/dish": {
-      "get": {
-        "tags": [
-          "Restaurants"
-        ],
-        "description": "Listing of all dishes",
-        "parameters": [],
         "responses": {}
       }
     },
@@ -126,6 +126,25 @@
             "in": "body"
           }
         ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/checkout/history": {
+      "get": {
+        "tags": [
+          "Checkout"
+        ],
+        "description": "Get user order history",
+        "parameters": [],
         "responses": {
           "403": {
             "description": "Forbidden"
