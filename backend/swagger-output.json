@@ -31,46 +31,41 @@
         "responses": {}
       }
     },
-    "/secret": {
-      "get": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/dish": {
-      "get": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
     "/restaurants/": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Listing of all restaurants",
         "parameters": [],
         "responses": {}
       }
     },
     "/restaurants/{restaurantId}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Get details for one restaurant by ID",
         "parameters": [
           {
             "name": "restaurantId",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Restaurant ID to lookup"
           }
         ],
+        "responses": {}
+      }
+    },
+    "/restaurants/dish": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "description": "Listing of all dishes",
+        "parameters": [],
         "responses": {}
       }
     },
