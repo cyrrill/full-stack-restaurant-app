@@ -16,6 +16,21 @@ export default function Navigation() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
+        <Navbar>
+          <Navbar.Text>
+            <Nav.Link className="nav-link" href="/">Restaurants</Nav.Link>
+          </Navbar.Text>
+          <Navbar.Text>
+            <Nav.Link className="nav-link" href="/dishes">All Dishes</Nav.Link>
+          </Navbar.Text>
+          {!!token
+          ?
+          <Navbar.Text>
+            <Nav.Link className="nav-link" href="/history">Order History</Nav.Link>
+          </Navbar.Text>
+          : ''}
+        </Navbar>
+
         {token === null
           ? ''
           : <Navbar.Collapse className="justify-content-end">
