@@ -37,23 +37,23 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:latest']
 
 # Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args:
-  - 'run'
-  - 'deploy'
-  - 'backend'
-  - '--image'
-  - 'gcr.io/$PROJECT_ID/$REPO_NAME-backend:latest'
-  - '--region'
-  - 'us-central1-a'
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args:
-  - 'run'
-  - 'deploy'
-  - 'frontend'
-  - '--image'
-  - 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:latest'
-  - '--region'
-  - 'us-central1-a'
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#   entrypoint: gcloud
+#   args:
+#   - 'run'
+#   - 'deploy'
+#   - 'backend'
+#   - '--image'
+#   - 'gcr.io/$PROJECT_ID/$REPO_NAME-backend:latest'
+#   - '--region'
+#   - 'us-central1-a'
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#   entrypoint: gcloud
+#   args:
+#   - 'run'
+#   - 'deploy'
+#   - 'frontend'
+#   - '--image'
+#   - 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:latest'
+#   - '--region'
+#   - 'us-central1-a'
