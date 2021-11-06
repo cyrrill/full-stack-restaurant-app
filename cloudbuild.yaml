@@ -16,7 +16,6 @@ steps:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME-backend:$COMMIT_SHA'
   - '-t'
   - 'gcr.io/$PROJECT_ID/$REPO_NAME-backend:latest'
-  - '-f'
   - './backend/Dockerfile'
 
 # Push the BACKEND container image to Container Registry
@@ -25,7 +24,13 @@ steps:
 
  # Build the FRONTEND container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:$COMMIT_SHA', '-f', './frontend/Dockerfile']
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:$COMMIT_SHA'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/$REPO_NAME-frontend:latest'
+  - './frontend/Dockerfile'
 
 # Push the FRONTEND container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
