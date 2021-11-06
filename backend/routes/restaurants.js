@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const cacheMiddleware = require('../middleware/cache-headers');
 const Dish  = require('../models/dish');
 const Restaurant = require('../models/restaurant');
+
+// Cache reponses for an hour in the client
+router.use(cacheMiddleware);
 
 router.get('/', async function(req, res, next) {
 
