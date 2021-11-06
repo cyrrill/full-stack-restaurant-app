@@ -2,7 +2,7 @@
 FROM node:14 AS deps
 WORKDIR /app
 COPY package.json ./
-RUN npm ci --prefer-offline --no-audit
+RUN npm i --prefer-offline --no-audit
 
 # Rebuild the source code only when needed
 FROM node:14 AS builder
