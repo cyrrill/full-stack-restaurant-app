@@ -48,12 +48,12 @@ function History(props) {
 
 export async function getServerSideProps(ctx) {
   const accessToken = nookies.get(ctx).token
-  const ordersRes = await fetch('http://backend:8080/checkout/history', {
+  const ordersRes = await fetch(`${process.env.BACKEND_URL}/checkout/history`, {
     headers: { 'Authorization': 'Bearer ' + accessToken }
   })
   const orders = await ordersRes.json()
 
-  const dishesRes = await fetch('http://backend:8080/restaurants/dishes')
+  const dishesRes = await fetch(`${process.env.BACKEND_URL}/restaurants/dishes`)
   const dishes = await dishesRes.json()
 
   let dishDictionary = {}

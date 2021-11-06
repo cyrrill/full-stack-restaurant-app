@@ -73,7 +73,7 @@ function Dishes(data) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://backend:8080/restaurants/dishes`)
+  const res = await fetch(`${process.env.BACKEND_URL}/restaurants/dishes`)
   const data = await res.json()
   return { props: { dishes: data } }
 }

@@ -68,7 +68,7 @@ export async function getServerSideProps(ctx) {
 }
 
 async function storeOrder(accessToken, paymentIntent, items) {
-  const res = await fetch('http://backend:8080/checkout/order', {
+  const res = await fetch(`${process.env.BACKEND_URL}/checkout/order`, {
     method: 'POST',
     headers: {
         'Authorization': 'Bearer ' + accessToken,

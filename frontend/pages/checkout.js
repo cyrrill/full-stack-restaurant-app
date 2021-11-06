@@ -44,7 +44,7 @@ export async function getServerSideProps(ctx) {
   const accessToken = nookies.get(ctx).token
   const dishes = nookies.get(ctx).checkout
   const items = dishes ? JSON.parse(dishes) : []
-  const res = await fetch('http://backend:8080/checkout/create-payment-intent', {
+  const res = await fetch(`${process.env.BACKEND_URL}/checkout/create-payment-intent`, {
     method: 'POST',
     headers: {
         'Authorization': 'Bearer ' + accessToken,

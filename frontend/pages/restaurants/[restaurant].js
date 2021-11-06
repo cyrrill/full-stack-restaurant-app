@@ -51,7 +51,7 @@ function Restaurant(data) {
 export async function getServerSideProps(ctx) {
   const accessToken = nookies.get(ctx).token
   const { restaurant } = ctx.query
-  const res = await fetch(`http://backend:8080/restaurants/${restaurant}`, {
+  const res = await fetch(`${process.env.BACKEND_URL}/restaurants/${restaurant}`, {
     method: 'GET',
     headers: {
         'Authorization': 'Bearer ' + accessToken
