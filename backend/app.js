@@ -23,10 +23,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexRouter = require('./routes/index');
 const restaurantsRouter = require('./routes/restaurants');
 const checkoutRouter = require('./routes/checkout');
+const usersRouter = require('./routes/users');
 
 app.use('/', indexRouter);
 app.use('/restaurants', restaurantsRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/users', usersRouter);
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
