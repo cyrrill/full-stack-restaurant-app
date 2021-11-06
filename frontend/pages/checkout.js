@@ -5,7 +5,7 @@ import Cart from '../components/cart'
 import CheckoutForm from "../components/checkout-form"
 import nookies from 'nookies'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_51JqddAAPxH3OsO2Y6yOIRQzp5uKoBSSLIo4Wy1GECrGKWfR70ZbQzxI6oVrwLkBbnnRw2Ncuh0Mb3MM4ddCoeypP00pBBK7zD0')
 
 function Checkout(data) {
 
