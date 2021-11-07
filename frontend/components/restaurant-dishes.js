@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Card, Button, Row, Col, Image, Toast } from 'react-bootstrap';
+import { Card, Button, Row, Col, Toast } from 'react-bootstrap';
+import Image from 'next/image';
 import router from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectToken } from '../store/auth-slice'
@@ -25,7 +26,7 @@ export default function RestaurantDishes(data) {
   const dishesArray = data.dishes.map(dish => (
     <Col key={dish._id}>
       <Card style={{height: "450px"}}>
-        <Card.Img variant="top" src={dish.imageUrl} style={{height: "170px"}} />
+        <Card.Img as={Image} variant="top" src={dish.imageUrl} height="170px" width="170px" />
         <Card.Body style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <Card.Title>{dish.name}</Card.Title>

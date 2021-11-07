@@ -1,11 +1,12 @@
 import { Card, Button, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
 
 export default function RestaurantsArray(props) {
 
   const restaurantsArray = props.data.restaurants.map(restaurant => (
     <Col key={restaurant._id}>
       <Card style={{height: "450px"}}>
-        <Card.Img variant="top" src={restaurant.imageUrl} style={{height: "170px"}} />
+        <Card.Img as={Image} variant="top" src={restaurant.imageUrl} height="170px" width="170px" />
         <Card.Body style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <Card.Title>{restaurant.name}</Card.Title>
