@@ -77,7 +77,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: (process.env.NEXT_PUBLIC_STRIPE_REDIRECT || 'https://cyril-grazefullstackrestaurantapplication.com/complete'),
+        return_url: (process.env.NEXT_PUBLIC_STRIPE_REDIRECT),
         receipt_email: token.email,
         shipping: {
           name: val('name'),
