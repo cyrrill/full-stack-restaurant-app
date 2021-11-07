@@ -28,7 +28,7 @@ export default function RestaurantDishes(data) {
   const dishesArray = data.dishes.map(dish => (
     <Col key={dish._id}>
       <Card style={{height: "450px"}}>
-        <Card.Img as={Image} variant="top" src={dish.imageUrl} height="170px" width="170px" placeholder={blur} />
+        <Card.Img as={Image} alt={dish.name} variant="top" src={dish.imageUrl} height="170px" width="170px" placeholder={blur} />
         <Card.Body style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <Card.Title>{dish.name}</Card.Title>

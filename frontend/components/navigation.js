@@ -14,7 +14,7 @@ export default function Navigation() {
         <Navbar.Brand href="/">
           <Image src="/images/logo.png" alt="Cyrils Restaurants" width="110px" height="110px" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle />
 
         <Navbar>
           <Navbar.Text>

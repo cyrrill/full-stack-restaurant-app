@@ -8,7 +8,7 @@ export default function RestaurantsArray(props) {
   const restaurantsArray = props.data.restaurants.map(restaurant => (
     <Col key={restaurant._id}>
       <Card style={{height: "450px"}}>
-        <Card.Img as={Image} variant="top" src={restaurant.imageUrl} height="170px" width="170px" placeholder={blur} />
+        <Card.Img as={Image} alt={restaurant.name} variant="top" src={restaurant.imageUrl} height="170px" width="170px" placeholder={blur} />
         <Card.Body style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <Card.Title>{restaurant.name}</Card.Title>

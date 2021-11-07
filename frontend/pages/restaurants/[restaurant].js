@@ -37,7 +37,9 @@ function Restaurant(data) {
       <main className="main">
         <div>
           <InputGroup className="px-5">
-            <InputGroup.Text id="basic-addon1"><Image src="/images/search-icon.png" /></InputGroup.Text>
+            <InputGroup.Text id="basic-addon1">
+              <Image src="/images/search-icon.png" alt="search" width="50px" height="50px" />
+            </InputGroup.Text>
             <Form.Control id="search" type="text" onChange={() => doSearch()} autoComplete="off" style={{fontSize:"24px"}}/>
           </InputGroup>
         </div>
