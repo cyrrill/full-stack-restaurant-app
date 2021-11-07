@@ -1,3 +1,5 @@
+# Adapted from: https://nextjs.org/docs/deployment
+#
 # Install dependencies only when needed
 FROM node:14 AS deps
 WORKDIR /app

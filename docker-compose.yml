@@ -5,25 +5,23 @@ services:
   # In production running on MongoDB Atlas Cloud service
   # For development, a local MongoDB instance be spun up with this service
   #
-  # mongo:
-  #   image: mongo:5.0.2
-  #   restart: unless-stopped
-  #   env_file: ./.env
-  #   ports:
-  #     - "27017:27017"
-  #   volumes:
-  #     - /var/local/mongo-restaurants:/data/db
+  mongo:
+    image: mongo:5.0.2
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - "27017:27017"
+    volumes:
+      - /var/local/mongo-restaurants:/data/db
 
 
   # NodeJS Express API Service
   backend:
 
-    # If using local instance then uncomment
-    #
-    # depends_on:
-    #   - mongo
-    # links:
-    #   - mongo
+    depends_on:
+      - mongo
+    links:
+      - mongo
 
     build: ./backend
     restart: unless-stopped
