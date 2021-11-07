@@ -33,9 +33,11 @@ function History(props) {
       <div className="main">
         <Table striped bordered hover style={{width:"500px", marginLeft:"auto", marginRight:"auto"}}>
           <thead>
-            <th>Date</th>
-            <th style={{width:"300px"}}>Dishes</th>
-            <th>Total</th>
+            <tr>
+              <th>Date</th>
+              <th style={{width:"300px"}}>Dishes</th>
+              <th>Total</th>
+            </tr>
           </thead>
           <tbody>
             {orders}
