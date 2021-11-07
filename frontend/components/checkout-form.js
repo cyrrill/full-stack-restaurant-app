@@ -46,28 +46,33 @@ export default function CheckoutForm() {
     })
   }
 
-  let inputs, index;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      return;
+      return
     }
 
-    setIsLoading(true)
     setMessage('')
+    let inputs, index
+    let valid = true
 
     inputs = document.getElementsByTagName('input');
     for (index = 0; index < inputs.length; ++index) {
         if (!inputs[index].value) {
           inputs[index].classList.add('input-invalid')
+          valid = false
           if (inputs[index].label) {
             inputs[index].label.style.display = 'block'
           }
         }
     }
     document.getElementById('payment-form').checkValidity()
+
+    if (!valid) {
+      return
+    }
+    setIsLoading(true)
 
     const { error } = await stripe.confirmPayment({
       elements,
