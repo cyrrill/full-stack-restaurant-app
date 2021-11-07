@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 import { Form, InputGroup, Image, Button } from 'react-bootstrap'
 import RestaurantDishes from '../components/restaurant-dishes'
+import shuffleArray from '../util/shuffle-array'
 
 function Dishes(data) {
 
@@ -28,15 +28,6 @@ function Dishes(data) {
 
     document.getElementById('search').value = item.name
     doSearch()
-  }
-
-  // https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
-  const shuffleArray = array => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array
   }
 
   function doShuffle() {
