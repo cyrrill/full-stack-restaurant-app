@@ -3,6 +3,12 @@ steps:
     args:
       - build
       - '--no-cache'
+      - '--build-arg'
+      - '_NEXT_PUBLIC_BACKEND_URL=${_NEXT_PUBLIC_BACKEND_URL}'
+      - '--build-arg'
+      - '_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}'
+      - '--build-arg'
+      - '_NEXT_PUBLIC_STRIPE_REDIRECT=${_NEXT_PUBLIC_STRIPE_REDIRECT}'
       - '-t'
       - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
       - frontend
