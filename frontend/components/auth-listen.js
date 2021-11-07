@@ -13,8 +13,8 @@ export default function AuthListen() {
     const auth = await import('firebase/auth');
     auth.getAuth().onIdTokenChanged(nextOrObserver => {
       if (nextOrObserver) {
-        const { accessToken, displayName, email } = nextOrObserver
-        const tokenData = { accessToken, displayName, email }
+        const { accessToken, displayName, email, photoURL } = nextOrObserver
+        const tokenData = { accessToken, displayName, email, photoURL }
         nookies.set(undefined, 'token', accessToken, { path: '/' })
         dispatch(setToken(tokenData))
       } else {
