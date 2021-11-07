@@ -6,6 +6,10 @@ const cacheMiddleware = require('../middleware/cache-headers');
 router.use(cacheMiddleware);
 
 router.get('/', function(req, res, next) {
+
+  // #swagger.tags = ['Index']
+  // #swagger.description = 'Here for convenience'
+
   res.send({ status: '200 OK' });
 });
 
