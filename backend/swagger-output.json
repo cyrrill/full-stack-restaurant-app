@@ -156,6 +156,136 @@
           }
         ]
       }
+    },
+    "/users/": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Webhook for CloudFunctions `onAuthCreate` trigger",
+        "parameters": [
+          {
+            "name": "email",
+            "description": "User email on account",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "displayName",
+            "description": "Display name for user",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "uid",
+            "description": "Google Firebase UserID",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "photoURL",
+            "description": "User avatar",
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Allows user to retrieve their own profile",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "Allows user to update their own profile",
+        "parameters": [
+          {
+            "name": "displayName",
+            "description": "Display name for user",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "description",
+            "description": "User description",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "imageUrl",
+            "description": "User avatar",
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/users/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Allows user registration directly on API via Admin SDK",
+        "parameters": [
+          {
+            "name": "displayName",
+            "description": "Display name for user",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "email",
+            "description": "User email on account",
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "password",
+            "description": "Authentication password to set",
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
     }
   },
   "definitions": {}
