@@ -1,10 +1,10 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-const fetch = require('node-fetch');
+import functions from 'firebase-functions';
+import admin from 'firebase-admin';
+import fetch from 'node-fetch';
 
 admin.initializeApp();
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
+export const helloWorld = functions.https.onRequest((request, response) => {
     functions.logger.info("Hello logs!", {structuredData: true});
     response.send("Hello from Firebase!");
 });
@@ -28,4 +28,4 @@ const createProfile = async(userRecord, context) => {
   response.send(await res.json());
 };
 
-exports.authOnCreate = functions.auth.user().onCreate(createProfile);
+export const authOnCreate = functions.auth.user().onCreate(createProfile);
