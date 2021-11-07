@@ -11,6 +11,16 @@ FROM node:14 AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+
+# From CloudBuild substitution variables
+ARG _NEXT_PUBLIC_BACKEND_URL
+ENV NEXT_PUBLIC_BACKEND_URL=${_NEXT_PUBLIC_BACKEND_URL}
+ARG _NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+ARG _NEXT_PUBLIC_STRIPE_REDIRECT
+ENV NEXT_PUBLIC_STRIPE_REDIRECT=${_NEXT_PUBLIC_STRIPE_REDIRECT}
+
+# Build runtime optimized distribution
 RUN npm run build
 
 # Production image, copy all the files and run next
