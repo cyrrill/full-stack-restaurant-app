@@ -65,6 +65,7 @@ function Profile(props) {
         <div className="d-grid gap-2">
           <Button variant="dark" onClick={() => save(setShowToast)} size="lg">Save</Button>
         </div>
+        <br/>
       </Form>
       </div>
       <ToastContainer className="toast-container position-absolute bottom-0 start-0 p-3" style={{zIndex: 11}}>
