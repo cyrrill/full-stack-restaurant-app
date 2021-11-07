@@ -6,21 +6,37 @@ const User = require('../models/user');
 
 
 router.post('/', async function(req, res) {
-  const { email, displayName, uid } = req.body;
+  const { email, displayName, uid, photoURL } = req.body;
   const existingUser = await firebaseAdmin.auth().getUser(uid);
   if (existingUser && existingUser.email === email) {
     return res.json(await User.create({
+      _id: uid,
       email,
       displayName,
-      uid
+      description: '',
+      imageUrl: photoURL
     }))
   }
   res.status(401).send({})
 });
 
-router.post('/profile', firebaseAuth, function(req, res) {
+router.get('/me', firebaseAuth, async function(req, res) {
+  res.json(await User.findById(req.user.uid));
+});
 
-
+router.put('/me', firebaseAuth, async function(req, res) {
+  const { displayName, description, imageUrl } = req.body;
+  let fbData = { displayName }
+  let dbData = { ...fbData, description}
+  // if (imageUrl) {
+    fbData.photoURL = dbData.imageUrl = imageUrl || null;
+  // }
+  firebaseAdmin.auth().updateUser(req.user.uid, fbData);
+  res.json(await User.findByIdAndUpdate(req.user.uid, {
+    displayName,
+    description,
+    imageUrl
+  }, { new: true }));
 });
 
 router.post('/register', async function(req, res) {
