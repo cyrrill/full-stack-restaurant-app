@@ -113,9 +113,6 @@ export default function Register() {
           </Toast.Header>
           <Toast.Body>There was an error registering, please try again.</Toast.Body>
         </Toast>
-      </div>
-
-      <div className="toast-container position-absolute bottom-0 start-0 p-3" style={{zIndex: 11}}>
         <Toast onClose={() => setShowSuccessToast(false)} show={showSuccessToast} delay={3000} autohide>
           <Toast.Header className="text-success">
             <strong className="me-auto">Registration Success</strong>
