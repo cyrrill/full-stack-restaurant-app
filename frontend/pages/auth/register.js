@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import router from 'next/router'
-import { Form, Button, Toast } from 'react-bootstrap';
+import { Form, Button, Toast, ToastContainer } from 'react-bootstrap';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 export default function Register() {
@@ -106,7 +106,8 @@ export default function Register() {
 
       </div>
 
-      <div className="toast-container position-absolute bottom-0 start-0 p-3" style={{zIndex: 11}}>
+
+      <ToastContainer className="toast-container position-absolute bottom-0 start-0 p-3" style={{zIndex: 11}}>
         <Toast onClose={() => setShowErrorToast(false)} show={showErrorToast} delay={5000} autohide>
           <Toast.Header className="text-danger">
             <strong className="me-auto">Registration Failed</strong>
@@ -119,7 +120,7 @@ export default function Register() {
           </Toast.Header>
           <Toast.Body>Your account was successfully created, welcome! :)</Toast.Body>
         </Toast>
-      </div>
+      </ToastContainer>
 
     </main>
     </>
