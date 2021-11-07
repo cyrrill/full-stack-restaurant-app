@@ -4,6 +4,7 @@ import nookies from 'nookies'
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
+    owner: '',
     dishes: {
         // { _id: { name, price, quantity } }
     },
@@ -11,6 +12,9 @@ export const cartSlice = createSlice({
     quantity: 0
   },
   reducers: {
+    setOwner: (state, action) => {
+      state.owner = action.payload
+    },
     addDish: (state, action) => {
         if (!!state.dishes[action.payload._id]) {
             state.dishes[action.payload._id].quantity++
@@ -55,5 +59,6 @@ export const { addDish, removeDish, deleteDish, emptyCart } = cartSlice.actions
 export const selectDishes = state => state.cart.dishes
 export const selectTotal = state => state.cart.total
 export const selectQuantity = state => state.cart.quantity
+export const selectOwner = state => state.cart.owner
 
 export default cartSlice.reducer
