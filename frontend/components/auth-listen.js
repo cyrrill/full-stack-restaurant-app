@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import nookies from 'nookies'
 import { setToken } from '../store/auth-slice'
-import firebaseConfig from '../config/firebase';
+
 
 export default function AuthListen() {
 
@@ -10,11 +10,8 @@ export default function AuthListen() {
 
   useEffect(async () => {
 
-    const firebase = await import('firebase/app');
     const auth = await import('firebase/auth');
-    const app = firebase.initializeApp(firebaseConfig)
-
-    auth.getAuth(app).onIdTokenChanged(nextOrObserver => {
+    auth.getAuth().onIdTokenChanged(nextOrObserver => {
       if (nextOrObserver) {
         const { accessToken, displayName, email } = nextOrObserver
         const tokenData = { accessToken, displayName, email }
