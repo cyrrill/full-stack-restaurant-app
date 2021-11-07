@@ -40,8 +40,15 @@ export default function Navigation() {
                   {(window.location.href.includes('/checkout')) ? '' : <CartButton />}
                 </Navbar.Text>
                 <Navbar.Text>
-                  <Nav.Link className="nav-link">{token.displayName || token.email}</Nav.Link>
+                  <Nav.Link href="/auth/profile" className="nav-link">{token.displayName || token.email}</Nav.Link>
                 </Navbar.Text>
+                {token.photoURL
+                  ? <Navbar.Text>
+                      <Nav.Link href="/auth/profile" className="nav-link">
+                        <img src={token.photoURL} height="50px" />
+                      </Nav.Link>
+                    </Navbar.Text>
+                  : ''}
                 <Navbar.Text>
                   <Nav.Link className="nav-link" href="/auth/logout">Logout</Nav.Link>
                 </Navbar.Text>
