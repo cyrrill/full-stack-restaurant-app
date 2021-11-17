@@ -23,6 +23,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: backend/package-lock.json
+    - run: npm ci
+      working-directory: ./backend
+    - run: npm run build --if-present
+      working-directory: ./backend
+    - run: npm test
+      working-directory: ./backend
       env:
         FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         FIREBASE_PRIVATE_KEY_ID: ${{ secrets.FIREBASE_PRIVATE_KEY_ID }}
@@ -31,12 +37,6 @@ jobs:
         FIREBASE_CLIENT_ID: ${{ secrets.FIREBASE_CLIENT_ID }}
         FIREBASE_CLIENT_X509_CERT_URL: ${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}
         STRIPE_PRIVATE_KEY: ${{ secrets.STRIPE_PRIVATE_KEY }}
-    - run: npm ci
-      working-directory: ./backend
-    - run: npm run build --if-present
-      working-directory: ./backend
-    - run: npm test
-      working-directory: ./backend
 
 #   deploy:
 #     runs-on: ubuntu-latest
