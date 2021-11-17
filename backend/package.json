@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "swagger-autogen": "node ./swagger.js",
-    "test": "jest --setupFiles dotenv/config"
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
