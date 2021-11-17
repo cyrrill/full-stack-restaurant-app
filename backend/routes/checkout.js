@@ -14,7 +14,7 @@ router.post('/create-payment-intent', firebaseAuth, async function(req, res, nex
   const { items } = req.body;
 
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
+    amount: router.calculateOrderAmount(items),
     currency: "usd",
     payment_method_types: [
       "card",
@@ -60,7 +60,7 @@ router.get('/history', firebaseAuth, async function(req, res, next) {
 });
 
 // Calculate order total server-side to avoid manual alter client-side
-function calculateOrderAmount(items) {
+router.calculateOrderAmount = (items) => {
   let total = 0
   for (const item of items) {
       total += item.price * item.quantity
