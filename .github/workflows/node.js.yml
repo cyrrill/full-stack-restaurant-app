@@ -23,20 +23,23 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: backend/package-lock.json
-    - run: npm ci
+    - name: NPM CI
+      run: npm ci
       working-directory: ./backend
-    - run: npm run build --if-present
+    - name: NPM Build
+      run: npm run build --if-present
       working-directory: ./backend
-    - run: npm test
-      working-directory: ./backend
+    - name: NPM Test
       env:
-        FIREBASE_PROJECT_ID: ${{ env.FIREBASE_PROJECT_ID }}
-        FIREBASE_PRIVATE_KEY_ID: ${{ env.FIREBASE_PRIVATE_KEY_ID }}
-        FIREBASE_PRIVATE_KEY: ${{ env.FIREBASE_PRIVATE_KEY }}
-        FIREBASE_CLIENT_EMAIL: ${{ env.FIREBASE_CLIENT_EMAIL }}
-        FIREBASE_CLIENT_ID: ${{ env.FIREBASE_CLIENT_ID }}
-        FIREBASE_CLIENT_X509_CERT_URL: ${{ env.FIREBASE_CLIENT_X509_CERT_URL }}
-        STRIPE_PRIVATE_KEY: ${{ env.STRIPE_PRIVATE_KEY }}
+        FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        FIREBASE_PRIVATE_KEY_ID: ${{ secrets.FIREBASE_PRIVATE_KEY_ID }}
+        FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+        FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+        FIREBASE_CLIENT_ID: ${{ secrets.FIREBASE_CLIENT_ID }}
+        FIREBASE_CLIENT_X509_CERT_URL: ${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}
+        STRIPE_PRIVATE_KEY: ${{ secrets.STRIPE_PRIVATE_KEY }}
+      run: npm test
+      working-directory: ./backend
 
 #   deploy:
 #     runs-on: ubuntu-latest
