@@ -61,7 +61,7 @@ router.get('/history', firebaseAuth, async function(req, res, next) {
 
 // Calculate order total server-side to avoid manual alter client-side
 router.calculateOrderAmount = (items) => {
-  let total = 0
+  let total = 1 // break test on purpose
   for (const item of items) {
       total += item.price * item.quantity
   }
